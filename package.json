@@ -1,8 +1,8 @@
 {
   "name": "fanyi-node",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
-  "main": "cli.ts",
+  "main": "src/cli.js",
   "bin": {
     "fanyi": "src/cli.js"
   },
@@ -16,7 +16,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "commander": "^8.2.0",
     "md5": "^2.3.0"
