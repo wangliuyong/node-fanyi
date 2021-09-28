@@ -3,7 +3,7 @@ import * as querystring from 'querystring'
 const md5 = require('md5')
 import { appid, appSecret } from './private'
 
-export const translate = (word) => {
+export const translate = (word: string) => {
 
   const salt = Math.random()
   const sign = md5(appid + word + salt + appSecret)
@@ -35,7 +35,7 @@ export const translate = (word) => {
   };
 
   const req = https.request(options, (res) => {
-    const chunks = []
+    const chunks: Buffer[] = []
     res.on('data', (data) => {
       chunks.push(data)
       const jsonString = Buffer.concat(chunks).toString()
