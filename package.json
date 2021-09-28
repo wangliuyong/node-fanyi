@@ -1,16 +1,15 @@
 {
   "name": "fanyi-node",
-  "version": "0.0.2",
+  "version": "0.0.6",
   "description": "",
-  "main": "src/cli.js",
+  "main": "dist/main.js",
   "bin": {
-    "fanyi": "src/cli.js"
+    "fanyi": "dist/cli.js"
   },
   "files": [
     "dist/**/*.js"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "ts-node-dev src/main.ts",
     "cli": "ts-node-dev src/cli.ts"
   },
