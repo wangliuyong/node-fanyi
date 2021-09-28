@@ -1,5 +1,5 @@
 {
-  "name": "node-fanyi",
+  "name": "fanyi-node",
   "version": "0.0.1",
   "description": "",
   "main": "cli.ts",
