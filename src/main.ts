@@ -30,9 +30,25 @@ export const translate = (english) => {
     res.on('data', (data) => {
       chunks.push(data)
       const jsonString = Buffer.concat(chunks).toString()
-      const res = JSON.parse(jsonString)
+      type baiduRes = {
+        error_code?: string,
+        error_msg?: string,
+        from: string,
+        to: string,
+        trans_result: {
+          src: string,
+          dst: string
+        }[]
+      }
+      const res: baiduRes = JSON.parse(jsonString)
       console.log(res);
-
+      if (res.error_code) {
+        console.error(res.error_msg)
+        process.exit(1)
+      } else {
+        console.log(res.trans_result[0].dst);
+        process.exit(1)
+      }
     });
   });
   req.on('error', (e) => {
