@@ -8,6 +8,7 @@ export const translate = (word) => {
   const salt = Math.random()
   const sign = md5(appid + word + salt + appSecret)
   let from, to
+  // 匹配是不是英文
   const reEng = new RegExp("^[a-zA-Z]+$")
   if (reEng.test(word)) {
     from = 'en'
@@ -24,7 +25,6 @@ export const translate = (word) => {
     appid,
     salt,
     sign
-    // appid+q+salt+密钥的MD5值  
   });
   // 请求参数构造
   const options = {
