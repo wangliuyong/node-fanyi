@@ -1,12 +1,10 @@
 import * as https from 'https'
 import * as querystring from 'querystring'
 const md5 = require('md5')
+import { appid, appSecret } from './private'
 
 export const translate = (english) => {
-  console.log(english);
 
-  const appid = '20180930000214641'
-  const appSecret = 'DbpdusNoDRD4Eu3vieVb'
   const salt = Math.random()
   const sign = md5(appid + english + salt + appSecret)
 
@@ -28,8 +26,13 @@ export const translate = (english) => {
   };
 
   const req = https.request(options, (res) => {
-    res.on('data', (d) => {
-      process.stdout.write(d);
+    const chunks = []
+    res.on('data', (data) => {
+      chunks.push(data)
+      const jsonString = Buffer.concat(chunks).toString()
+      const res = JSON.parse(jsonString)
+      console.log(res);
+
     });
   });
   req.on('error', (e) => {
