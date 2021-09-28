@@ -3,21 +3,30 @@ import * as querystring from 'querystring'
 const md5 = require('md5')
 import { appid, appSecret } from './private'
 
-export const translate = (english) => {
+export const translate = (word) => {
 
   const salt = Math.random()
-  const sign = md5(appid + english + salt + appSecret)
-
+  const sign = md5(appid + word + salt + appSecret)
+  let from, to
+  const reEng = new RegExp("^[a-zA-Z]+$")
+  if (reEng.test(word)) {
+    from = 'en'
+    to = 'zh'
+  } else {
+    from = 'zh'
+    to = 'en'
+  }
+  // 百度翻译参数构造
   const query = querystring.stringify({
-    q: english,
-    from: 'en',
-    to: 'zh',
+    q: word,
+    from,
+    to,
     appid,
     salt,
     sign
     // appid+q+salt+密钥的MD5值  
   });
-
+  // 请求参数构造
   const options = {
     hostname: 'api.fanyi.baidu.com',
     port: 443,
@@ -41,7 +50,6 @@ export const translate = (english) => {
         }[]
       }
       const res: baiduRes = JSON.parse(jsonString)
-      console.log(res);
       if (res.error_code) {
         console.error(res.error_msg)
         process.exit(1)
