@@ -1,0 +1,20 @@
+{
+  "name": "node-fanyi",
+  "version": "0.0.1",
+  "description": "",
+  "main": "cli.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node-dev src/main.ts",
+    "cli": "ts-node-dev src/cli.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^8.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^16.10.1"
+  }
+}
