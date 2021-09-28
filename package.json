@@ -3,6 +3,12 @@
   "version": "0.0.1",
   "description": "",
   "main": "cli.ts",
+  "bin": {
+    "fanyi": "src/cli.js"
+  },
+  "files": [
+    "dist/**/*.js"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "ts-node-dev src/main.ts",
