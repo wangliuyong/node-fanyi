@@ -18,7 +18,7 @@ export const translate = (word: string) => {
     to = 'en'
   }
   // 百度翻译参数构造
-  const query = querystring.stringify({
+  const query:string = querystring.stringify({
     q: word,
     from,
     to,
@@ -26,6 +26,8 @@ export const translate = (word: string) => {
     salt,
     sign
   });
+
+  
   // 请求参数构造
   const options = {
     hostname: 'api.fanyi.baidu.com',

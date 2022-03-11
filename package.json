@@ -11,7 +11,8 @@
   ],
   "scripts": {
     "start": "ts-node-dev src/main.ts",
-    "cli": "ts-node-dev src/cli.ts"
+    "cli": "ts-node-dev src/cli.ts",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
